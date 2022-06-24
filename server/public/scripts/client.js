@@ -37,6 +37,7 @@ function collectInputTwo(){
             data: ({num}),
         }).then( function( response ){
             console.log( response )
+            getResult()
         });
         };
 
@@ -47,5 +48,5 @@ function getResult(){
     }).then( function( response ){
         console.log( response )
     });
-        console.log( 'end of getInventory')
+        console.log( 'end of getResult')
     };

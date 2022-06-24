@@ -26,8 +26,8 @@ app.post( '/calculator', ( req, res) => {
 });
 
 // GET request
-app.get( '/inventory', function( req, res ){
-    console.log( 'in get inventory');
+app.get( '/calculator', function( req, res ){
+    console.log( 'in get calculator');
         let num1 = additionArray[0].num
         let num2 = additionArray[1].num
         if(additionArray){
