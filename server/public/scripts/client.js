@@ -46,13 +46,11 @@ function getResult(){
         url: '/calculator',
         method: 'GET'
     }).then( function( response ){
-        console.log( response )
-        renderToDom( response );
+        console.log( response );
+        $( '#result' ).empty();
+        $( '#result').append( response )
     });
         console.log( 'end of getResult')
     };
 
-function renderToDom(){
-    $( '#result' ).empty();
-    $( '#result').append( `<li>${anArray[2].num}</li>`)
-    };
+
