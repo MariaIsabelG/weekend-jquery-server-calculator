@@ -47,6 +47,15 @@ function getResult(){
         method: 'GET'
     }).then( function( response ){
         console.log( response )
+        renderToDom( response );
     });
         console.log( 'end of getResult')
     };
+
+function renderToDom(){
+    $( '#itemList' ).empty();
+    for( let item of anArray ){
+        $( '#itemList').append( `<li>${item.name}:${item.description}</li>`)
+    }
+};
+}

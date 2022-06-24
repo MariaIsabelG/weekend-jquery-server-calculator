@@ -30,10 +30,7 @@ app.get( '/calculator', function( req, res ){
     console.log( 'in get calculator');
         let num1 = additionArray[0].num
         let num2 = additionArray[1].num
-        if(additionArray){
-        let result = num1 + num2;
-        return result
-        }
+        let result = Number(num1) + Number(num2)
         res.send( {result} )
     });    
 
