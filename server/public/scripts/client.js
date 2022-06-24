@@ -26,7 +26,7 @@ function collectInputOne(){
     });
     };
 
-    function collectInputTwo(){
+function collectInputTwo(){
         // gather input from the DOM 
         let num = $( '#input2' ).val()
     
@@ -39,3 +39,13 @@ function collectInputOne(){
             console.log( response )
         });
         };
+
+function getResult(){
+    $.ajax({
+        url: '/calculator',
+        method: 'GET'
+    }).then( function( response ){
+        console.log( response )
+    });
+        console.log( 'end of getInventory')
+    };
