@@ -12,6 +12,9 @@ function onReady(){
 
 }
 
+
+
+
 function collectInputOne(){
     // gather input from the DOM 
     let num = $( '#input1' ).val()
@@ -37,7 +40,8 @@ function collectInputTwo(){
             data: ({num}),
         }).then( function( response ){
             console.log( response )
-            getResult()
+            getResult();
+
         });
         };
 
@@ -47,10 +51,15 @@ function getResult(){
         method: 'GET'
     }).then( function( response ){
         console.log( response );
-        $( '#result' ).empty();
-        $( '#result').append( response )
+        renderToDom( response );
     });
         console.log( 'end of getResult')
     };
 
 
+    function renderToDom( anArray ){
+        $( '#result' ).empty();
+        $( '#result').append( `<span>${anArray[2]}</span>`);
+        };
+
+// LEFT OFF: need to append the whole array to the DOM to show the history 

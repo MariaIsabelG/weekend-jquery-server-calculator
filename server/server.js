@@ -32,7 +32,8 @@ app.get( '/calculator', function( req, res ){
         let num2 = additionArray[1].num
         let num3 = Number(num1) + Number(num2)
         additionArray.push(num3)
-        res.send( {num3} )
+        res.send( additionArray )
+        additionArray = [];
     });    
 
 
