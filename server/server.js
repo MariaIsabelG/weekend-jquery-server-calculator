@@ -13,9 +13,10 @@ app.use( express.static( 'server/public' ) );
 // Set up middlewares
 app.use(bodyParser.urlencoded({ extended: true }));
 
+let additionArray = [];
 // Addittion POST request 
 app.post( '/calculator', ( req, res) => {
-    console.log( 'POST /inventory', req.body );
+    console.log( 'POST for input 1', req.body );
 
     res.sendStatus( 201 );
 });

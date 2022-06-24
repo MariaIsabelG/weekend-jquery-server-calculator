@@ -13,14 +13,13 @@ function onReady(){
 
 function collectInputOne(){
     // gather input from the DOM 
-    let num1 = $( '#input1' ).val();
-    console.log( num1 );
+    let num1 = $( '#input1' ).val()
 
     // send input to server
     $.ajax({
         url: '/calculator',
         method: 'POST',
-        data: num1
+        data: ({num1}),
     }).then( function( response ){
         console.log( response )
     });
