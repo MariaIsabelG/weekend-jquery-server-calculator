@@ -17,9 +17,15 @@ let additionArray = [];
 // Addittion POST request 
 app.post( '/calculator', ( req, res) => {
     console.log( 'POST for input 1', req.body );
-
     res.sendStatus( 201 );
+    additionArray.push(req.body)
+
+    if(additionArray){
+        let result = additionArray[0].num + additionArray[1].num
+        console.log(result)
+    }
 });
+
 
 
 

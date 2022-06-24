@@ -2,7 +2,8 @@ $( onReady );
 
 function onReady(){
 
-  $( '#add' ).on( 'click', collectInputOne );  
+  $( '#add' ).on( 'click', collectInputOne );
+  $( '#equal' ).on( 'click', collectInputTwo ); 
 
 
 
@@ -13,14 +14,28 @@ function onReady(){
 
 function collectInputOne(){
     // gather input from the DOM 
-    let num1 = $( '#input1' ).val()
+    let num = $( '#input1' ).val()
 
     // send input to server
     $.ajax({
         url: '/calculator',
         method: 'POST',
-        data: ({num1}),
+        data: ({num}),
     }).then( function( response ){
         console.log( response )
     });
     };
+
+    function collectInputTwo(){
+        // gather input from the DOM 
+        let num = $( '#input2' ).val()
+    
+        // send input to server
+        $.ajax({
+            url: '/calculator',
+            method: 'POST',
+            data: ({num}),
+        }).then( function( response ){
+            console.log( response )
+        });
+        };
