@@ -13,7 +13,12 @@ app.use( express.static( 'server/public' ) );
 // Set up middlewares
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Addittion POST request 
+app.post( '/calculator', ( req, res) => {
+    console.log( 'POST /inventory', req.body );
 
+    res.sendStatus( 201 );
+});
 
 
 

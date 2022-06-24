@@ -18,7 +18,7 @@ function collectInputOne(){
 
     // send input to server
     $.ajax({
-        url: '/inputone',
+        url: '/calculator',
         method: 'POST'
     }).then( function( response ){
         console.log( response )
