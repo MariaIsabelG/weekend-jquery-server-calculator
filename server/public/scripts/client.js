@@ -53,9 +53,6 @@ function getResult(){
     };
 
 function renderToDom(){
-    $( '#itemList' ).empty();
-    for( let item of anArray ){
-        $( '#itemList').append( `<li>${item.name}:${item.description}</li>`)
-    }
-};
-}
+    $( '#result' ).empty();
+    $( '#result').append( `<li>${anArray[2].num}</li>`)
+    };
