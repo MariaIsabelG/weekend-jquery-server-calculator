@@ -15,12 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 let additionArray = [];
 
-function addition( num1, num2){
-    if(additionArray){
-    let result = num1 + num2;
-    return result
-    }
-};
+
 // Addittion POST request 
 app.post( '/calculator', ( req, res) => {
     console.log( 'POST for inputs', req.body );
@@ -33,12 +28,19 @@ app.post( '/calculator', ( req, res) => {
 // GET request
 app.get( '/inventory', function( req, res ){
     console.log( 'in get inventory');
-    addition(additionArray[0],addition[1])
-    res.send( result );
+    addition( additionArray  )
+    res.send( {result} );
 });
 
 
-
+function addition( anyArray ){
+    let num1 = anyArray[0].num
+    let num2 = anyArray[1].num
+    if(anyArray){
+    let result = num1 + num2;
+    return result
+    }
+};
 
 
 
