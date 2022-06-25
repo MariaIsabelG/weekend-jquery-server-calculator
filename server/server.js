@@ -14,6 +14,7 @@ app.use( express.static( 'server/public' ) );
 app.use(bodyParser.urlencoded({ extended: true }));
 
 let additionArray = [];
+let subtractionArray = [];
 
 
 // Addittion POST request 
@@ -28,11 +29,17 @@ app.post( '/addition', ( req, res) => {
 // Addition GET request
 app.get( '/addition', function( req, res ){
     console.log( 'in get addition');
-        let num1 = additionArray[0].num;
-        let num2 = additionArray[1].num;
-        let num3 = Number(num1 + num2);
-        additionArray.push(num3);
+    for( let i = 0; i<additionArray.length; i++ ){
+        additionArray[i].num = Number( additionArray[i].num )
+        }
+        let inputOneVal = additionArray[0].num;
+        let inputTwoVal = additionArray[1].num;
+        let result = {
+            num: inputOneVal + inputTwoVal
+        }
+        additionArray.push( result );
         res.send( additionArray )
+        console.log(additionArray)
         additionArray = [];
     });    
 

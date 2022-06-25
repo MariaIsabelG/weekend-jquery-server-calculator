@@ -2,8 +2,8 @@ $( onReady );
 
 function onReady(){
 
-  $( '#add' ).on( 'click', collectInputOne );
-  $( '#equal' ).on( 'click', collectInputTwo ); 
+  $( '#add' ).on( 'click', additionInputOne );
+  $( '#equal' ).on( 'click', additionInputTwo ); 
 
 
 
@@ -12,42 +12,41 @@ function onReady(){
 
 }
 
-
-
-
-function collectInputOne(){
+function additionInputOne(){
     // gather input from the DOM 
-    let num = $( '#input1' ).val();
+    const inputOne = {
+        num: $( '#input1' ).val()
+    }
 
     // send input to server
     $.ajax({
         url: '/addition',
         method: 'POST',
-        data: ({num}),
+        data: inputOne,
     }).then( function( response ){
         console.log( response )
     });
-    };
+};
 
-
-
-function collectInputTwo(){
+function additionInputTwo(){
         // gather input from the DOM 
-        let num = $( '#input2' ).val()
+        const inputTwo = {
+            num: $( '#input2' ).val()
+        }
     
         // send input to server
         $.ajax({
             url: '/addition',
             method: 'POST',
-            data: ({num}),
+            data: inputTwo,
         }).then( function( response ){
             console.log( response )
-            getResult();
+            getAdditionResult();
 
         });
-        };
+};
 
-function getResult(){
+function getAdditionResult(){
     $.ajax({
         url: '/addition',
         method: 'GET'
@@ -55,14 +54,21 @@ function getResult(){
         console.log( response );
         renderToDom( response );
     });
-        console.log( 'end of getResult')
-    };
+};
+
+
+
+
+
+
 
 
     function renderToDom( anArray ){
         $( '#result' ).empty();
-        $( '#result').append( `<span>${anArray[2]}</span>`);
-        $( '#history').append( `<li>${anArray[0]} + ${anArray[1]} = ${anArray[2]}</li>`);
+        $( '#result').append( `<span>${anArray[2].num}</span>`);
+        $( '#history').append( `<li>${anArray[0].num} + ${anArray[1].num} = ${anArray[2].num}</li>`);
+        $( '#input1' ).val( '' );
+        $( '#input2' ).val( '' );
         };
 
 // LEFT OFF: need to append the whole array to the DOM to show the history 
