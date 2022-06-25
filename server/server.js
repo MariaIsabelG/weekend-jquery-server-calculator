@@ -13,34 +13,36 @@ app.use( express.static( 'server/public' ) );
 // Set up middlewares
 app.use(bodyParser.urlencoded({ extended: true }));
 
-let additionArray = [];
-let subtractionArray = [];
+let calcArray = [];
+//let subtractionArray = [];
 
 
-// Addittion POST request 
-app.post( '/addition', ( req, res) => {
+//  POST request 
+app.post( '/calculator', ( req, res) => {
     console.log( 'POST for addition', req.body );
     res.sendStatus( 201 );
-    additionArray.push(req.body);
+    calcArray.push(req.body);
 
     
 });
 
-// Addition GET request
-app.get( '/addition', function( req, res ){
+//  GET request
+app.get( '/calculator', function( req, res ){
     console.log( 'in get addition');
-    for( let i = 0; i<additionArray.length; i++ ){
-        additionArray[i].num = Number( additionArray[i].num )
-        }
-        let inputOneVal = additionArray[0].num;
-        let inputTwoVal = additionArray[1].num;
-        let result = {
-            num: inputOneVal + inputTwoVal
-        }
-        additionArray.push( result );
-        res.send( additionArray )
-        console.log(additionArray)
-        additionArray = [];
+    let inputOne = calcArray.
+
+
+    switch (operator){
+        case '+':
+            inputOne = Number(calcArray[i].inputOne);
+            inputTwo = Number(calcArray[i].inputTwo);
+    }
+
+ 
+
+        res.send( calcArray );
+        console.log(calcArray);
+        calcArray = [];
     });    
 
 

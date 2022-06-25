@@ -2,8 +2,8 @@ $( onReady );
 
 function onReady(){
 
-  $( '#add' ).on( 'click', additionInputOne );
-  $( '#equal' ).on( 'click', additionInputTwo ); 
+  $( '#add' ).on( 'click', handleOperator );
+  $( '#equal' ).on( 'click', handleSubmit ); 
 
 
 
@@ -12,47 +12,44 @@ function onReady(){
 
 }
 
-function additionInputOne(){
-    // gather input from the DOM 
-    const inputOne = {
-        num: $( '#input1' ).val()
-    }
+let operator;
 
-    // send input to server
+function handleOperator(){
+    operator = $( this ).closest( 'button' ).data( 'operator' )
+};
+
+function handleSubmit(){
+
+    const input = {
+        inputOne: $( '#input1' ).val(),
+        inputTwo: $( '#input2' ).val(),
+        operator: operator
+    }
     $.ajax({
-        url: '/addition',
+        url: '/calculator',
         method: 'POST',
-        data: inputOne,
+        data: input,
     }).then( function( response ){
-        console.log( response )
+        console.log( response );
+        getCalcResult()
+
     });
 };
 
-function additionInputTwo(){
-        // gather input from the DOM 
-        const inputTwo = {
-            num: $( '#input2' ).val()
-        }
-    
-        // send input to server
-        $.ajax({
-            url: '/addition',
-            method: 'POST',
-            data: inputTwo,
-        }).then( function( response ){
-            console.log( response )
-            getAdditionResult();
 
-        });
-};
 
-function getAdditionResult(){
+
+
+
+
+
+function getCalcResult(){
     $.ajax({
-        url: '/addition',
+        url: '/calculator',
         method: 'GET'
     }).then( function( response ){
         console.log( response );
-        renderToDom( response );
+        //renderToDom( response );
     });
 };
 
