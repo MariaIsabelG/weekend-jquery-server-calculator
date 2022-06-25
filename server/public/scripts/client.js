@@ -7,9 +7,6 @@ function onReady(){
 
 
 
-
-
-
 }
 
 let operator;

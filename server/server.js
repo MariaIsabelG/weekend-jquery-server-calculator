@@ -23,26 +23,24 @@ app.post( '/calculator', ( req, res) => {
     res.sendStatus( 201 );
     calcArray.push(req.body);
 
-    
+  
 });
+
 
 //  GET request
 app.get( '/calculator', function( req, res ){
-    console.log( 'in get addition');
-    let inputOne = calcArray.
-
-
-    switch (operator){
-        case '+':
-            inputOne = Number(calcArray[i].inputOne);
-            inputTwo = Number(calcArray[i].inputTwo);
-    }
-
- 
-
-        res.send( calcArray );
-        console.log(calcArray);
-        calcArray = [];
+    console.log( 'in get caculator');
+    
+    // let inputOne =  Number(calcArray.inputOne);
+    // let inputTwo = Number(calcArray.inputTwo);
+    // let result;
+    // switch (operator){
+    //     case '+':
+    //         result = inputOne + inputTwo;
+    //         break;
+    // }
+        res.send( {operator} );
+        console.log(operator);
     });    
 
 
