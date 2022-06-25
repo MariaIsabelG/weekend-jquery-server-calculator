@@ -20,7 +20,7 @@ function handleSubmit(){
     const input = {
         inputOne: $( '#input1' ).val(),
         inputTwo: $( '#input2' ).val(),
-        operator: operator
+        operator: operator,
     }
     $.ajax({
         url: '/calculator',
@@ -28,7 +28,7 @@ function handleSubmit(){
         data: input,
     }).then( function( response ){
         console.log( response );
-        getCalcResult()
+       // getCalcResult()
 
     });
 };

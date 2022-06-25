@@ -21,27 +21,34 @@ let calcArray = [];
 app.post( '/calculator', ( req, res) => {
     console.log( 'POST for addition', req.body );
     res.sendStatus( 201 );
-    calcArray.push(req.body);
+    let data = req.body;
+    let operator = data.operator;
+    let inputOne = data.inputOne;
+    let inputTwo = data.inputTwo;
+    calcArray.push(data);
 
-  
+    console.log( calcArray );
+
+
+
 });
 
 
 //  GET request
-app.get( '/calculator', function( req, res ){
-    console.log( 'in get caculator');
+// app.get( '/calculator', function( req, res ){
+//     console.log( 'in get caculator');
     
-    // let inputOne =  Number(calcArray.inputOne);
-    // let inputTwo = Number(calcArray.inputTwo);
-    // let result;
-    // switch (operator){
-    //     case '+':
-    //         result = inputOne + inputTwo;
-    //         break;
-    // }
-        res.send( {operator} );
-        console.log(operator);
-    });    
+//     // let inputOne =  Number(calcArray.inputOne);
+//     // let inputTwo = Number(calcArray.inputTwo);
+//     // let result;
+//     // switch (operator){
+//     //     case '+':
+//     //         result = inputOne + inputTwo;
+//     //         break;
+//     // }
+//      //   res.send( {operator} );
+//      //   console.log(operator);
+//     });    
 
 
 
