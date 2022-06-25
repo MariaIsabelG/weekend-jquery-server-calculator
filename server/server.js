@@ -23,50 +23,44 @@ app.post( '/calculator', ( req, res) => {
     res.sendStatus( 201 );
     let data = req.body;
     let operator = data.operator;
-    let inputOne = data.inputOne;
-    let inputTwo = data.inputTwo;
-    calcArray.push(data);
+    let inputOne = Number(data.inputOne);
+    let inputTwo = Number(data.inputTwo);
+
+    calcArray.push( data );
 
     switch (operator){
         case '+':
             result = inputOne + inputTwo;
+            //calcArray.push( result )
             console.log( result );
             break;
         case '-':
             result = inputOne - inputTwo;
+            //calcArray.push( result )
             console.log( result );
             break;
         case 'x':
             result = inputOne * inputTwo;
+            //calcArray.push( result )
             console.log( result );
             break;
         case '/':
             result = inputOne / inputTwo;
+           // calcArray.push( result )
             console.log( result );
             break;
         default:
             console.log( 'No calculator' );
     }
-
-
+    
 });
 
 
-//  GET request
-// app.get( '/calculator', function( req, res ){
-//     console.log( 'in get caculator');
-    
-//     // let inputOne =  Number(calcArray.inputOne);
-//     // let inputTwo = Number(calcArray.inputTwo);
-//     // let result;
-//     // switch (operator){
-//     //     case '+':
-//     //         result = inputOne + inputTwo;
-//     //         break;
-//     // }
-//      //   res.send( {operator} );
-//      //   console.log(operator);
-//     });    
+// GET request
+app.get( '/calculator', function( req, res ){
+    console.log( 'in get caculator');
+    res.send( calcArray );
+    });    
 
 
 
