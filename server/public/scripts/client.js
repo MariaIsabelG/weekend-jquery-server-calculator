@@ -17,11 +17,11 @@ function onReady(){
 
 function collectInputOne(){
     // gather input from the DOM 
-    let num = $( '#input1' ).val()
+    let num = $( '#input1' ).val();
 
     // send input to server
     $.ajax({
-        url: '/calculator',
+        url: '/addition',
         method: 'POST',
         data: ({num}),
     }).then( function( response ){
@@ -29,13 +29,15 @@ function collectInputOne(){
     });
     };
 
+
+
 function collectInputTwo(){
         // gather input from the DOM 
         let num = $( '#input2' ).val()
     
         // send input to server
         $.ajax({
-            url: '/calculator',
+            url: '/addition',
             method: 'POST',
             data: ({num}),
         }).then( function( response ){
@@ -47,7 +49,7 @@ function collectInputTwo(){
 
 function getResult(){
     $.ajax({
-        url: '/calculator',
+        url: '/addition',
         method: 'GET'
     }).then( function( response ){
         console.log( response );
