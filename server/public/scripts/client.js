@@ -62,7 +62,7 @@ function getResult(){
     function renderToDom( anArray ){
         $( '#result' ).empty();
         $( '#result').append( `<span>${anArray[2]}</span>`);
-        $( '#history').text( `<li>${anArray[0]} + ${anArray[1]} = ${anArray[2]}</li>`);
+        $( '#history').append( `<li>${anArray[0]} + ${anArray[1]} = ${anArray[2]}</li>`);
         };
 
 // LEFT OFF: need to append the whole array to the DOM to show the history 

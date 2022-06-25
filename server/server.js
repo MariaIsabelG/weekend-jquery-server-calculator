@@ -20,7 +20,7 @@ let additionArray = [];
 app.post( '/addition', ( req, res) => {
     console.log( 'POST for addition', req.body );
     res.sendStatus( 201 );
-    additionArray.push(req.body)
+    additionArray.push(req.body);
 
     
 });
@@ -30,8 +30,8 @@ app.get( '/addition', function( req, res ){
     console.log( 'in get addition');
         let num1 = additionArray[0].num;
         let num2 = additionArray[1].num;
-        let num3 = Number(num1) + Number(num2);
-        additionArray.push(num3)
+        let num3 = Number(num1 + num2);
+        additionArray.push(num3);
         res.send( additionArray )
         additionArray = [];
     });    
