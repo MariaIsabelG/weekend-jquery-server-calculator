@@ -27,8 +27,26 @@ app.post( '/calculator', ( req, res) => {
     let inputTwo = data.inputTwo;
     calcArray.push(data);
 
-    console.log( calcArray );
-
+    switch (operator){
+        case '+':
+            result = inputOne + inputTwo;
+            console.log( result );
+            break;
+        case '-':
+            result = inputOne - inputTwo;
+            console.log( result );
+            break;
+        case 'x':
+            result = inputOne * inputTwo;
+            console.log( result );
+            break;
+        case '/':
+            result = inputOne / inputTwo;
+            console.log( result );
+            break;
+        default:
+            console.log( 'No calculator' );
+    }
 
 
 });
