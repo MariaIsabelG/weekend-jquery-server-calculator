@@ -1,7 +1,7 @@
 $( onReady );
 
 function onReady(){
-   getCalcResult(); 
+  // getCalcResult(); 
 
   $( '#add' ).on( 'click', handleOperator );
   $( '#sub' ).on( 'click', handleOperator );

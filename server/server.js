@@ -18,6 +18,7 @@ let history = [];
 
 
 
+
 //  POST request 
 app.post( '/calculator', ( req, res) => {
     console.log( 'POST for addition', req.body );
@@ -26,7 +27,7 @@ app.post( '/calculator', ( req, res) => {
     let operator = data.operator;
     let inputOne = Number(data.inputOne);
     let inputTwo = Number(data.inputTwo);
-    //let result = data.result
+    result = data.result
     
     calcArray.push( data );
 
@@ -38,34 +39,32 @@ app.post( '/calculator', ( req, res) => {
             break;
         case '-':
             result = inputOne - inputTwo;
-            calcArray.push( result )
+            calcArray.push( {result} )
             console.log( result );
             break;
         case 'x':
             result = inputOne * inputTwo;
-            calcArray.push( result )
+            calcArray.push( {result} )
             console.log( result );
             break;
         case '/':
             result = inputOne / inputTwo;
-            calcArray.push( result )
+            calcArray.push( {result} )
             console.log( result );
             break;
         default:
             console.log( 'No calculator' );
     }
-    
+    history.push(calcArray);
     
 });
 
 
 // GET request
 app.get( '/calculator', function( req, res ){
-    console.log( 'in get caculator');
     res.send( calcArray );
     calcArray = [];
-
-    
+    console.log( 'History:', history ); 
 
 });    
 
