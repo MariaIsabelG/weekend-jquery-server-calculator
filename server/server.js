@@ -14,7 +14,7 @@ app.use( express.static( 'server/public' ) );
 app.use(bodyParser.urlencoded({ extended: true }));
 
 let calcArray = [];
-//let history = [];
+let history = [];
 
 
 
@@ -26,34 +26,34 @@ app.post( '/calculator', ( req, res) => {
     let operator = data.operator;
     let inputOne = Number(data.inputOne);
     let inputTwo = Number(data.inputTwo);
-
+    //let result = data.result
+    
     calcArray.push( data );
 
     switch (operator){
         case '+':
             result = inputOne + inputTwo;
-            //calcArray.push( result )
+            calcArray.push( {result} )
             console.log( result );
             break;
         case '-':
             result = inputOne - inputTwo;
-            //calcArray.push( result )
+            calcArray.push( result )
             console.log( result );
             break;
         case 'x':
             result = inputOne * inputTwo;
-            //calcArray.push( result )
+            calcArray.push( result )
             console.log( result );
             break;
         case '/':
             result = inputOne / inputTwo;
-           // calcArray.push( result )
+            calcArray.push( result )
             console.log( result );
             break;
         default:
             console.log( 'No calculator' );
     }
-    calcArray.push( { result });
     
     
 });
@@ -65,7 +65,8 @@ app.get( '/calculator', function( req, res ){
     res.send( calcArray );
     calcArray = [];
 
-    res.sendStatus( 201 );
+    
+
 });    
 
 

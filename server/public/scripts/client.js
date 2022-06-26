@@ -1,6 +1,7 @@
 $( onReady );
 
 function onReady(){
+   getCalcResult(); 
 
   $( '#add' ).on( 'click', handleOperator );
   $( '#sub' ).on( 'click', handleOperator );
@@ -56,5 +57,6 @@ function renderToDom( anArray ){
 
 function handleClear(){
     $( '#history' ).empty();
-}
+    $( '#result' ).empty();
+};
 
