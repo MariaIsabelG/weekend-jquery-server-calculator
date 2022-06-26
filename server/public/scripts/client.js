@@ -7,7 +7,7 @@ function onReady(){
   $( '#mul' ).on( 'click', handleOperator );
   $( '#divide' ).on( 'click', handleOperator );
   $( '#equal' ).on( 'click', handleSubmit ); 
-
+  $( '#clear' ).on( 'click' , handleClear );
 
 
 }
@@ -36,13 +36,6 @@ function handleSubmit(){
     });
 };
 
-
-
-
-
-
-
-
 function getCalcResult(){
     $.ajax({
         url: '/calculator',
@@ -53,19 +46,15 @@ function getCalcResult(){
     });
 };
 
-
-
-
-
-
-
-
-    function renderToDom( anArray ){
+function renderToDom( anArray ){
         $( '#result' ).empty();
         $( '#result').append( `<span> ${anArray[1].result} </span>`);
         $( '#history').append( `<li>${anArray[0].inputOne} ${anArray[0].operator} ${anArray[0].inputTwo} = ${anArray[1].result} </li>`);
         $( '#input1' ).val( '' );
         $( '#input2' ).val( '' );
-        };
+ };
 
-// LEFT OFF: need to append the whole array to the DOM to show the history 
+function handleClear(){
+    $( '#history' ).empty();
+}
+

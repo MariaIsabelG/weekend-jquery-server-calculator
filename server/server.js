@@ -64,7 +64,9 @@ app.get( '/calculator', function( req, res ){
     console.log( 'in get caculator');
     res.send( calcArray );
     calcArray = [];
-    });    
+
+    res.sendStatus( 201 );
+});    
 
 
 
