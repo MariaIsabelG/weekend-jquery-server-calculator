@@ -62,8 +62,8 @@ function getCalcResult(){
 
     function renderToDom( anArray ){
         $( '#result' ).empty();
-        $( '#result').append( `<span> Almost there! </span>`);
-        $( '#history').append( `<li> This might be working </li>`);
+        $( '#result').append( `<span> ${anArray[1].result} </span>`);
+        $( '#history').append( `<li>${anArray[0].inputOne} ${anArray[0].operator} ${anArray[0].inputTwo} = ${anArray[1].result} </li>`);
         $( '#input1' ).val( '' );
         $( '#input2' ).val( '' );
         };

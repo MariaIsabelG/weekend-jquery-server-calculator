@@ -14,7 +14,8 @@ app.use( express.static( 'server/public' ) );
 app.use(bodyParser.urlencoded({ extended: true }));
 
 let calcArray = [];
-//let subtractionArray = [];
+//let history = [];
+
 
 
 //  POST request 
@@ -52,6 +53,8 @@ app.post( '/calculator', ( req, res) => {
         default:
             console.log( 'No calculator' );
     }
+    calcArray.push( { result });
+    
     
 });
 
@@ -60,6 +63,7 @@ app.post( '/calculator', ( req, res) => {
 app.get( '/calculator', function( req, res ){
     console.log( 'in get caculator');
     res.send( calcArray );
+    calcArray = [];
     });    
 
 
