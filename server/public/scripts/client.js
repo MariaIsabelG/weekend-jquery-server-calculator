@@ -48,14 +48,18 @@ function getCalcResult(){
 };
 
 function renderToDom( anArray ){
+        $( '#history').empty();
+
+        for( let i = 0; i < anArray.length; i++ ){
         $( '#result' ).empty();
-        $( '#result').append( `<span> ${anArray[1].result} </span>`);
-        $( '#history').append( `<li>${anArray[0].inputOne} ${anArray[0].operator} ${anArray[0].inputTwo} = ${anArray[1].result} </li>`);
-       
- };
+        $( '#result').append( `<span> ${anArray[i].result} </span>`);
+        $( '#history').append( `<li>${anArray[i].inputOne} ${anArray[i].operator} ${anArray[i].inputTwo} = ${anArray[i].result} </li>`);
+    }  
+};
 
 function handleClear(){
     $( '#input1' ).val( '' );
     $( '#input2' ).val( '' );
 };
 
+// LEFT OFF: Need to fix the history part

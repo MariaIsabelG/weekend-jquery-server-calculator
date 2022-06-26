@@ -27,44 +27,43 @@ app.post( '/calculator', ( req, res) => {
     let operator = data.operator;
     let inputOne = Number(data.inputOne);
     let inputTwo = Number(data.inputTwo);
-    result = data.result
     
-    calcArray.push( data );
-
     switch (operator){
         case '+':
             result = inputOne + inputTwo;
-            calcArray.push( {result} )
             console.log( result );
             break;
         case '-':
             result = inputOne - inputTwo;
-            calcArray.push( {result} )
             console.log( result );
             break;
         case 'x':
             result = inputOne * inputTwo;
-            calcArray.push( {result} )
             console.log( result );
             break;
         case '/':
             result = inputOne / inputTwo;
-            calcArray.push( {result} )
             console.log( result );
             break;
         default:
             console.log( 'No calculator' );
     }
-    history.push(calcArray);
-    
+    // create a new object 
+    const newObject = {
+    inputOne: inputOne,
+    inputTwo: inputTwo,
+    operator: operator,
+    result: result,
+    }
+
+    calcArray.push( newObject );
 });
 
 
 // GET request
 app.get( '/calculator', function( req, res ){
     res.send( calcArray );
-    calcArray = [];
-    console.log( 'History:', history ); 
+    console.log( calcArray );  
 
 });    
 
